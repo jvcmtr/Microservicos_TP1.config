@@ -1,0 +1,5 @@
+services:
+  Joao_Ramos_TP1_Frontend:
+    port: 8081
+  Joao_Ramos_TP1_OlaService:
+    port: 8082
