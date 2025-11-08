@@ -1,6 +1,6 @@
 spring:
   config:
-    import: classpath:constants.yaml
+    import: constants.yaml
 
 server:
   port: ${Frontend.port}
