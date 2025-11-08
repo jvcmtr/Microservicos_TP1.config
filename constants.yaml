@@ -1,0 +1,6 @@
+
+ports:
+  eureka:
+    default: 8761
+  api-gateway:
+    default: 8000
