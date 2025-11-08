@@ -5,13 +5,13 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: OlaService
+        - id: lb://JOAO_RAMOS_TP1_OLASERVICE
           uri: http://localhost:8082
           predicates:
             - Path=/app/**
 
         - id: FrontEnd
-          uri: http://localhost:8081
+          uri: lb://JOAO_RAMOS_TP1_FRONTEND
           predicates:
             - Path=/api/**
 
