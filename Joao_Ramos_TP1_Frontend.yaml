@@ -8,4 +8,4 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: ${Admin.url}/eureka/
+      defaultZone: ${Admin.service_url}/eureka/
