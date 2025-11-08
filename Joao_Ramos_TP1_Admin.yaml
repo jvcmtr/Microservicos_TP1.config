@@ -1,6 +1,7 @@
+import: constants.yaml
 spring:
   config:
-    import: classpath:constants.yaml
+    import: constants.yaml
 
 server:
   port: ${Admin.port}
