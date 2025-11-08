@@ -2,23 +2,23 @@
 # Serviços
 ApiGateway:
   port: 8000
-  service_url: http://localhost:${ApiGateway.port}/
+  service_url: http://localhost:${ApiGateway.port}
   url: ${ApiGateway.service_url}
 
 Frontend:
   port: 8081
   gateway_path: /app
-  service_url: http://localhost:${Frontend.port}/
-  url: ${ApiGateway.url}/${Frontend.gateway_path}
+  service_url: http://localhost:${Frontend.port}
+  url: ${ApiGateway.url}${Frontend.gateway_path}
 
 OlaService:
   port: 8082
   gateway_path: /api
-  service_url: http://localhost:${OlaService.port}/
-  url: ${ApiGateway.url}/${OlaService.gateway_path}
+  service_url: http://localhost:${OlaService.port}
+  url: ${ApiGateway.url}${OlaService.gateway_path}
 
 Admin:
   port: 8761
   gateway_path: /admin
-  service_url: http://localhost:${Admin.port}/
-  url: ${ApiGateway.url}/${Admin.gateway_path}
+  service_url: http://localhost:${Admin.port}
+  url: ${ApiGateway.url}${Admin.gateway_path}
