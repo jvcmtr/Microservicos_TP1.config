@@ -1,4 +1,11 @@
 
+services:
+  OlaService:
+    config: Joao_Ramos_.ola-service
+    port: ${ ${services.OlaService.config}.server.port}
+    url: http://localhost:${services.OlaService.port}
+
+
 ports:
   eureka:
     default: 8761
