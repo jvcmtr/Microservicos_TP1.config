@@ -3,7 +3,7 @@ server:
 
 default_lang: "sinadrin"
 
-eureka:
-  client:
-    service-url:
-      defaultZone: ${Admin.url}/eureka/
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: ${Admin.url}/eureka/
