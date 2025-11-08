@@ -1,5 +1,9 @@
+spring:
+  config:
+    import: classpath:constants.yaml
+
 server:
-  port: 8761
+  port: ${Admin.port}
 
 eureka:
   client:

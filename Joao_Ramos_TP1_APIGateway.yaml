@@ -1,7 +1,7 @@
-server:
-  port: ${ApiGateway.port}
-
 spring:
+  config:
+    import: classpath:constants.yaml
+    
   cloud:
     gateway:
       enabled: true
@@ -29,13 +29,19 @@ spring:
           filters:
             - RewritePath=${Admin.gateway_path}(?<segment>.*), /$\{segment}
 
+
+
+server:
+  port: ${ApiGateway.port}
+
+
 management:
   endpoints:
     web:
       exposure:
         include: "*"
 
-# eureka:
-#   client:
-#     service-url:
-#       defaultZone: ${Admin.url}/eureka/
+eureka:
+  client:
+    service-url:
+      defaultZone: ${Admin.url}/eureka/

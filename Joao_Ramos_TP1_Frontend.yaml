@@ -1,7 +1,11 @@
+spring:
+  config:
+    import: classpath:constants.yaml
+
 server:
   port: ${Frontend.port}
 
-# eureka:
-#   client:
-#     service-url:
-#       defaultZone: ${Admin.url}/eureka/
+eureka:
+  client:
+    service-url:
+      defaultZone: ${Admin.url}/eureka/
