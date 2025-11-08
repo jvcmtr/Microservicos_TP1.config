@@ -1,11 +1,7 @@
 server:
-  port: 8081
-
-services:
-  OlaService:
-    url: http://localhost:8082/
+  port: ${Frontend.port}
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${Admin.url}/eureka/

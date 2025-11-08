@@ -1,24 +1,41 @@
 server:
-  port: 8000
+  port: ${ApiGateway.port}
 
 spring:
   cloud:
-    discovery:
-          locator:
-            enabled: true
     gateway:
+      enabled: true
+      default-filters:
+        - StripPrefix=1 
       routes:
         - id: ola-service
-          uri: lb://JOAO_RAMOS_TP1_OLASERVICE
+          uri: ${OlaService.service_url}
           predicates:
-            - Path=/app/**, /app
+            - Path=${OlaService.gateway_path},${OlaService.gateway_path}/**
+          filters:
+            - RewritePath=${OlaService.gateway_path}(?<segment>.*), /$\{segment}
 
-        - id: frontEnd
-          uri: lb://JOAO_RAMOS_TP1_FRONTEND
+        - id: frontend
+          uri: ${Frontend.service_url}
           predicates:
-            - Path=/api/**
-
+            - Path=${Frontend.gateway_path},${Frontend.gateway_path}/**,/,/error,/error/**
+          filters:
+            - RewritePath=${Frontend.gateway_path}(?<segment>.*), /$\{segment}
+            
         - id: admin
-          uri: http://localhost:8761
+          uri: ${Admin.service_url}
           predicates:
-            - Path=/admin/**, /admin
+            - Path=${Admin.gateway_path},${Admin.gateway_path}/**,/eureka/**,/eureka
+          filters:
+            - RewritePath=${Admin.gateway_path}(?<segment>.*), /$\{segment}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${Admin.url}/eureka/

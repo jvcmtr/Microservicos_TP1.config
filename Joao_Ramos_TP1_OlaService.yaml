@@ -1,9 +1,9 @@
 server:
-  port: 8082
+  port: ${OlaService.port}
 
 default_lang: "sinadrin"
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${Admin.url}/eureka/
